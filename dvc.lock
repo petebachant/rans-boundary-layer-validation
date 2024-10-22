@@ -29,9 +29,9 @@ stages:
       size: 3446
     - path: system
       hash: md5
-      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
-      size: 15888
-      nfiles: 6
+      md5: 5a2682d2cc06adf69854388555500080.dir
+      size: 10924
+      nfiles: 5
     outs:
     - path: cases/laminar/postProcessing
       hash: md5
@@ -55,9 +55,9 @@ stages:
       size: 3446
     - path: system
       hash: md5
-      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
-      size: 15888
-      nfiles: 6
+      md5: 5a2682d2cc06adf69854388555500080.dir
+      size: 10924
+      nfiles: 5
     outs:
     - path: cases/k-epsilon/postProcessing
       hash: md5
@@ -81,9 +81,9 @@ stages:
       size: 3446
     - path: system
       hash: md5
-      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
-      size: 15888
-      nfiles: 6
+      md5: 5a2682d2cc06adf69854388555500080.dir
+      size: 10924
+      nfiles: 5
     outs:
     - path: cases/k-omega/postProcessing
       hash: md5
