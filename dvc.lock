@@ -15,10 +15,10 @@ stages:
   run-sim@laminar:
     cmd: calkit runenv python run.py --turbulence-model laminar -f
     deps:
-    - path: Dockerfile
+    - path: Dockerfile-lock.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 7e8858e959a04155f7981f9b4f609732
+      size: 2805
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -41,10 +41,10 @@ stages:
   run-sim@k-epsilon:
     cmd: calkit runenv python run.py --turbulence-model k-epsilon -f
     deps:
-    - path: Dockerfile
+    - path: Dockerfile-lock.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 7e8858e959a04155f7981f9b4f609732
+      size: 2805
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -67,10 +67,10 @@ stages:
   run-sim@k-omega:
     cmd: calkit runenv python run.py --turbulence-model k-omega -f
     deps:
-    - path: Dockerfile
+    - path: Dockerfile-lock.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 7e8858e959a04155f7981f9b4f609732
+      size: 2805
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
