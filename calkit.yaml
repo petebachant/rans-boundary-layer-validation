@@ -1,2 +1,11 @@
 questions:
   - What RANS model works best for a simple boundary layer?
+datasets:
+  - path: data/jhtdb-profiles.h5
+    title: Time-averaged data
+    description: Time-averaged data downloaded from the JHTDB website.
+    stage:
+    imported_from:
+      project: petebachant/boundary-layer-turbulence-modeling
+      path: data/jhtdb-transitional-bl/time-ave-profiles.h5
+      git_rev:
