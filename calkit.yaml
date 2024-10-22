@@ -20,3 +20,7 @@ environments:
     layers:
       - mambaforge
       - foampy
+figures:
+  - path: figures/mean-velocity-profiles.png
+    title: Mean velocity profiles
+    stage: plot-mean-velocity-profiles
