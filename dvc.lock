@@ -12,3 +12,81 @@ stages:
       hash: md5
       md5: 7e8858e959a04155f7981f9b4f609732
       size: 2805
+  run-sim@laminar:
+    cmd: calkit runenv python run.py --turbulence-model laminar -f
+    deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
+    - path: constant/transportProperties
+      hash: md5
+      md5: 308d95776c9f06ee1b8c6c02ca69e936
+      size: 898
+    - path: run.py
+      hash: md5
+      md5: 433e24737832039233afea78fd8c6c62
+      size: 3446
+    - path: system
+      hash: md5
+      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
+      size: 15888
+      nfiles: 6
+    outs:
+    - path: cases/laminar/postProcessing
+      hash: md5
+      md5: c8dbf65cedd6f7c5e87e3fea972e1c25.dir
+      size: 13408
+      nfiles: 1
+  run-sim@k-epsilon:
+    cmd: calkit runenv python run.py --turbulence-model k-epsilon -f
+    deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
+    - path: constant/transportProperties
+      hash: md5
+      md5: 308d95776c9f06ee1b8c6c02ca69e936
+      size: 898
+    - path: run.py
+      hash: md5
+      md5: 433e24737832039233afea78fd8c6c62
+      size: 3446
+    - path: system
+      hash: md5
+      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
+      size: 15888
+      nfiles: 6
+    outs:
+    - path: cases/k-epsilon/postProcessing
+      hash: md5
+      md5: 8b21b3a0ccacf22a1e1484f0fbd6358b.dir
+      size: 13322
+      nfiles: 1
+  run-sim@k-omega:
+    cmd: calkit runenv python run.py --turbulence-model k-omega -f
+    deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
+    - path: constant/transportProperties
+      hash: md5
+      md5: 308d95776c9f06ee1b8c6c02ca69e936
+      size: 898
+    - path: run.py
+      hash: md5
+      md5: 433e24737832039233afea78fd8c6c62
+      size: 3446
+    - path: system
+      hash: md5
+      md5: fc58c3d95adc190974ed0f0ce6d4bbb2.dir
+      size: 15888
+      nfiles: 6
+    outs:
+    - path: cases/k-omega/postProcessing
+      hash: md5
+      md5: d19dc390274976db3248f510d75b822c.dir
+      size: 13299
+      nfiles: 1
