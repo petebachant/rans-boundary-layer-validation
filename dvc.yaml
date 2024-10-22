@@ -1,0 +1,10 @@
+stages:
+  build-docker:
+    cmd: calkit build-docker openfoam-2406-foampy -i Dockerfile
+    deps:
+    - Dockerfile
+    outs:
+    - Dockerfile-lock.json:
+        cache: false
+        persist: true
+    always_changed: true
