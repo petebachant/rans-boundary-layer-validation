@@ -10,3 +10,6 @@
 ['remote "calkit-local"']
     url = http://api.localhost/projects/petebachant/rans-boundary-layer-validation/dvc
     auth = custom
+['remote "calkit-staging"']
+    url = https://api.staging.calkit.io/projects/petebachant/rans-boundary-layer-validation/dvc
+    auth = custom
