@@ -2,33 +2,33 @@ stages:
   build-docker:
     cmd: calkit build-docker openfoam-2406-foampy -i Dockerfile
     deps:
-      - Dockerfile
+    - Dockerfile
     outs:
-      - Dockerfile-lock.json:
-          cache: false
-          persist: true
+    - Dockerfile-lock.json:
+        cache: false
+        persist: true
     always_changed: true
   run-sim:
     foreach:
-      - laminar
-      - k-epsilon
-      - k-omega
+    - laminar
+    - k-epsilon
+    - k-omega
     do:
       cmd: calkit runenv python run.py --turbulence-model ${item} -f
       outs:
-        - cases/${item}/postProcessing
+      - cases/${item}/postProcessing
       deps:
-        - system
-        - constant/transportProperties
-        - run.py
-        - Dockerfile
+      - system
+      - constant/transportProperties
+      - run.py
+      - Dockerfile
   plot-mean-velocity-profiles:
     cmd: calkit runenv python scripts/plot-mean-velocity-profiles.py
     deps:
-      - cases/k-epsilon/postProcessing
-      - cases/k-omega/postProcessing
-      - cases/laminar/postProcessing
-      - data/jhtdb-profiles.h5
-      - scripts/plot-mean-velocity-profiles.py
+    - cases/k-epsilon/postProcessing
+    - cases/k-omega/postProcessing
+    - cases/laminar/postProcessing
+    - data/jhtdb-profiles.h5
+    - scripts/plot-mean-velocity-profiles.py
     outs:
-      - figures/mean-velocity-profiles.png
+    - figures/mean-velocity-profiles.png
