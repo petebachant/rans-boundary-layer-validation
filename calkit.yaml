@@ -23,4 +23,5 @@ environments:
 figures:
   - path: figures/mean-velocity-profiles.png
     title: Mean velocity profiles
+    description: Mean velocity profiles.
     stage: plot-mean-velocity-profiles
