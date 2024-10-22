@@ -25,6 +25,9 @@ stages:
   plot-mean-velocity-profiles:
     cmd: calkit runenv python scripts/plot-mean-velocity-profiles.py
     deps:
+    - cases/k-epsilon/postProcessing
+    - cases/k-omega/postProcessing
+    - cases/laminar/postProcessing
     - data/jhtdb-profiles.h5
     - scripts/plot-mean-velocity-profiles.py
     outs:

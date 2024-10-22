@@ -25,3 +25,7 @@ figures:
     title: Mean velocity profiles
     description: Mean velocity profiles.
     stage: plot-mean-velocity-profiles
+  - path: figures/mean-velocity-profiles.png
+    title: Mean velocity profiles
+    description: Mean velocity profiles.
+    stage: plot-mean-velocity-profiles
