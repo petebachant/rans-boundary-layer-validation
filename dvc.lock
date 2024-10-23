@@ -90,3 +90,34 @@ stages:
       md5: d19dc390274976db3248f510d75b822c.dir
       size: 13299
       nfiles: 1
+  plot-mean-velocity-profiles:
+    cmd: calkit runenv python scripts/plot-mean-velocity-profiles.py
+    deps:
+    - path: cases/k-epsilon/postProcessing
+      hash: md5
+      md5: 8b21b3a0ccacf22a1e1484f0fbd6358b.dir
+      size: 13322
+      nfiles: 1
+    - path: cases/k-omega/postProcessing
+      hash: md5
+      md5: d19dc390274976db3248f510d75b822c.dir
+      size: 13299
+      nfiles: 1
+    - path: cases/laminar/postProcessing
+      hash: md5
+      md5: c8dbf65cedd6f7c5e87e3fea972e1c25.dir
+      size: 13408
+      nfiles: 1
+    - path: data/jhtdb-profiles.h5
+      hash: md5
+      md5: 46ce259ab949ecb23751eb88ec753ff2
+      size: 83344240
+    - path: scripts/plot-mean-velocity-profiles.py
+      hash: md5
+      md5: e36af2518a84330ae190ae1ee7323eac
+      size: 1723
+    outs:
+    - path: figures/mean-velocity-profiles.png
+      hash: md5
+      md5: db9aa2ffe1e1b013e290b6c10bdf2424
+      size: 33855
