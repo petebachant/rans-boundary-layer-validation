@@ -9,3 +9,14 @@ datasets:
       project: petebachant/boundary-layer-turbulence-modeling
       path: data/jhtdb-transitional-bl/time-ave-profiles.h5
       git_rev:
+environments:
+  foam:
+    kind: docker
+    image: openfoam-2406-foampy
+    wdir: /work
+    path: Dockerfile
+    stage: build-docker
+    description: OpenFOAM v2406 with foamPy.
+    layers:
+      - mambaforge
+      - foampy
