@@ -20,3 +20,8 @@ environments:
     layers:
       - mambaforge
       - foampy
+figures:
+  - path: figures/mean-velocity-profiles.png
+    title: Mean velocity profiles
+    description: Mean velocity profiles from DNS and RANS models.
+    stage: plot-mean-velocity-profiles
