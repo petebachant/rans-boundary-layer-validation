@@ -114,10 +114,10 @@ stages:
       size: 83344240
     - path: scripts/plot-mean-velocity-profiles.py
       hash: md5
-      md5: e36af2518a84330ae190ae1ee7323eac
-      size: 1723
+      md5: a9372ddc8edc6d197f03f099469edee8
+      size: 1731
     outs:
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: db9aa2ffe1e1b013e290b6c10bdf2424
-      size: 33855
+      md5: 0251506f2d159291cec9596a886c5bb6
+      size: 32605
