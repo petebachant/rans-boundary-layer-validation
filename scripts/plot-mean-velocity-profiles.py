@@ -49,7 +49,7 @@ if __name__ == "__main__":
         )
         assert len(fpaths) == 1
         df2 = pd.read_csv(fpaths[0])
-        df2.plot(x="U_0", y="y", ax=ax, label=labels[turbulence_model])
+        df2.plot(x="U_0", y="y", ax=ax, label=turbulence_model)
     ax.set_xlabel("$U$")
     ax.set_ylabel("$y$")
     os.makedirs("figures", exist_ok=True)
