@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  build-docker:
+    cmd: calkit build-docker openfoam-2406-foampy -i Dockerfile
+    deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
+    outs:
+    - path: Dockerfile-lock.json
+      hash: md5
+      md5: 7e8858e959a04155f7981f9b4f609732
+      size: 2805
