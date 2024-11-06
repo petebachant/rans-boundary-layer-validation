@@ -1,7 +1,7 @@
 outs:
-  - md5: 46ce259ab949ecb23751eb88ec753ff2
-    size: 83344240
-    hash: md5
-    path: jhtdb-profiles.h5
-    remote: calkit:petebachant/boundary-layer-turbulence-modeling
-    push: false
+- md5: 46ce259ab949ecb23751eb88ec753ff2
+  size: 83344240
+  hash: md5
+  path: jhtdb-profiles.h5
+  remote: calkit:petebachant/boundary-layer-turbulence-modeling
+  push: false

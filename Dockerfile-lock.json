@@ -6,7 +6,6 @@
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
         "Created": "2024-10-22T11:56:11.031726593Z",
-        "DockerVersion": "27.2.0",
         "Author": "",
         "Config": {
             "Hostname": "",
