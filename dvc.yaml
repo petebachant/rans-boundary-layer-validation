@@ -32,3 +32,10 @@ stages:
     - scripts/plot-mean-velocity-profiles.py
     outs:
     - figures/mean-velocity-profiles.png
+  build-paper:
+    cmd: calkit runenv -n latex "cd ./paper && latexmk -pdf paper.tex"
+    deps:
+    - ./paper/paper.tex
+    - .calkit/environments/latex.yaml
+    outs:
+    - ./paper/paper.pdf
