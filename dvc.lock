@@ -121,3 +121,23 @@ stages:
       hash: md5
       md5: 0251506f2d159291cec9596a886c5bb6
       size: 32605
+  build-paper:
+    cmd: calkit runenv -n latex "cd ./paper && latexmk -pdf paper.tex"
+    deps:
+    - path: ./paper/paper.tex
+      hash: md5
+      md5: a106f8da5286cb64756cd8e8df5cc07d
+      size: 38000
+    - path: .calkit/environments/latex.yaml
+      hash: md5
+      md5: 18192dd148c8204fd3ff3f431e1e00d5
+      size: 103
+    - path: figures/mean-velocity-profiles.png
+      hash: md5
+      md5: 0251506f2d159291cec9596a886c5bb6
+      size: 32605
+    outs:
+    - path: ./paper/paper.pdf
+      hash: md5
+      md5: 6d3c33978e2afe4d1c92d4a6d0f53c1b
+      size: 274773
