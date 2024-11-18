@@ -20,8 +20,16 @@ environments:
     layers:
       - mambaforge
       - foampy
+  latex:
+    _include: .calkit/environments/latex.yaml
 figures:
   - path: figures/mean-velocity-profiles.png
     title: Mean velocity profiles
     description: Mean velocity profiles from DNS and RANS models.
     stage: plot-mean-velocity-profiles
+publications:
+  - path: paper/paper.pdf
+    kind: report
+    title: The article
+    description: This is the article.
+    stage: build-paper
