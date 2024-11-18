@@ -1,4 +1,0 @@
-kind: docker
-image: kjarosh/latex:2024.4
-description: TeXlive full from kjarosh.
-platform: linux/amd64
