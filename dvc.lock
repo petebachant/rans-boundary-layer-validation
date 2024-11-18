@@ -13,7 +13,7 @@ stages:
       md5: 27765ad9af3914c52abd21e3adae457c
       size: 2770
   run-sim@laminar:
-    cmd: calkit runenv python run.py --turbulence-model laminar -f
+    cmd: calkit runenv -n foam python run.py --turbulence-model laminar -f
     deps:
     - path: Dockerfile-lock.json
       hash: md5
@@ -39,7 +39,7 @@ stages:
       size: 13408
       nfiles: 1
   run-sim@k-epsilon:
-    cmd: calkit runenv python run.py --turbulence-model k-epsilon -f
+    cmd: calkit runenv -n foam python run.py --turbulence-model k-epsilon -f
     deps:
     - path: Dockerfile-lock.json
       hash: md5
@@ -65,7 +65,7 @@ stages:
       size: 13322
       nfiles: 1
   run-sim@k-omega:
-    cmd: calkit runenv python run.py --turbulence-model k-omega -f
+    cmd: calkit runenv -n foam python run.py --turbulence-model k-omega -f
     deps:
     - path: Dockerfile-lock.json
       hash: md5
@@ -91,7 +91,7 @@ stages:
       size: 13299
       nfiles: 1
   plot-mean-velocity-profiles:
-    cmd: calkit runenv python scripts/plot-mean-velocity-profiles.py
+    cmd: calkit runenv -n foam python scripts/plot-mean-velocity-profiles.py
     deps:
     - path: cases/k-epsilon/postProcessing
       hash: md5
@@ -121,3 +121,23 @@ stages:
       hash: md5
       md5: 0251506f2d159291cec9596a886c5bb6
       size: 32605
+  build-paper:
+    cmd: calkit runenv -n latex "cd paper && latexmk -pdf paper.tex"
+    deps:
+    - path: .calkit/environments/latex.yaml
+      hash: md5
+      md5: 18192dd148c8204fd3ff3f431e1e00d5
+      size: 103
+    - path: figures/mean-velocity-profiles.png
+      hash: md5
+      md5: 0251506f2d159291cec9596a886c5bb6
+      size: 32605
+    - path: paper/paper.tex
+      hash: md5
+      md5: 1cd16396b3cd59e20b0646761c1e5b26
+      size: 534
+    outs:
+    - path: paper/paper.pdf
+      hash: md5
+      md5: 9ac9633450e0b94b45dae936f0a39074
+      size: 72843
