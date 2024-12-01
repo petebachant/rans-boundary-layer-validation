@@ -7,3 +7,6 @@
 ['remote "calkit:petebachant/boundary-layer-turbulence-modeling"']
     url = https://api.calkit.io/projects/petebachant/boundary-layer-turbulence-modeling/dvc
     auth = custom
+['remote "calkit-staging"']
+    url = https://api.staging.calkit.io/projects/petebachant/rans-boundary-layer-validation/dvc
+    auth = custom
