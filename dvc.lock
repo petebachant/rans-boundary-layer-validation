@@ -13,12 +13,12 @@ stages:
       md5: 27765ad9af3914c52abd21e3adae457c
       size: 2770
   run-sim@laminar:
-    cmd: calkit runenv python run.py --turbulence-model laminar -f
+    cmd: calkit xenv -n foam -- python run.py --turbulence-model laminar -f
     deps:
-    - path: Dockerfile-lock.json
+    - path: Dockerfile
       hash: md5
-      md5: 27765ad9af3914c52abd21e3adae457c
-      size: 2770
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -39,12 +39,12 @@ stages:
       size: 13408
       nfiles: 1
   run-sim@k-epsilon:
-    cmd: calkit runenv python run.py --turbulence-model k-epsilon -f
+    cmd: calkit xenv -n foam -- python run.py --turbulence-model k-epsilon -f
     deps:
-    - path: Dockerfile-lock.json
+    - path: Dockerfile
       hash: md5
-      md5: 27765ad9af3914c52abd21e3adae457c
-      size: 2770
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -65,12 +65,12 @@ stages:
       size: 13322
       nfiles: 1
   run-sim@k-omega:
-    cmd: calkit runenv python run.py --turbulence-model k-omega -f
+    cmd: calkit xenv -n foam -- python run.py --turbulence-model k-omega -f
     deps:
-    - path: Dockerfile-lock.json
+    - path: Dockerfile
       hash: md5
-      md5: 27765ad9af3914c52abd21e3adae457c
-      size: 2770
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -91,8 +91,12 @@ stages:
       size: 13299
       nfiles: 1
   plot-mean-velocity-profiles:
-    cmd: calkit runenv python scripts/plot-mean-velocity-profiles.py
+    cmd: calkit xenv -n foam -- python scripts/plot-mean-velocity-profiles.py
     deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
     - path: cases/k-epsilon/postProcessing
       hash: md5
       md5: 8b21b3a0ccacf22a1e1484f0fbd6358b.dir
@@ -119,25 +123,25 @@ stages:
     outs:
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: 0251506f2d159291cec9596a886c5bb6
-      size: 32605
+      md5: efcdaa39c0a972798c06a0e15ebc7623
+      size: 32606
   build-paper:
-    cmd: calkit runenv -n latex "cd ./paper && latexmk -pdf paper.tex"
+    cmd: "calkit xenv -n latex -- latexmk -interaction=nonstopmode -cd -pdf paper/paper.tex\n"
     deps:
-    - path: ./paper/paper.tex
+    - path: .calkit/environments/latex.yaml
+      hash: md5
+      md5: a2daf8fb84b593caf26512bdea23a39e
+      size: 75
+    - path: figures/mean-velocity-profiles.png
+      hash: md5
+      md5: efcdaa39c0a972798c06a0e15ebc7623
+      size: 32606
+    - path: paper/paper.tex
       hash: md5
       md5: a106f8da5286cb64756cd8e8df5cc07d
       size: 38000
-    - path: .calkit/environments/latex.yaml
-      hash: md5
-      md5: 18192dd148c8204fd3ff3f431e1e00d5
-      size: 103
-    - path: figures/mean-velocity-profiles.png
-      hash: md5
-      md5: 0251506f2d159291cec9596a886c5bb6
-      size: 32605
     outs:
-    - path: ./paper/paper.pdf
+    - path: paper/paper.pdf
       hash: md5
-      md5: 6d3c33978e2afe4d1c92d4a6d0f53c1b
-      size: 274773
+      md5: aa72e57ff6cf2c1e26d58fb3d25f1552
+      size: 274903
