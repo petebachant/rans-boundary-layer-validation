@@ -33,3 +33,5 @@ publications:
     title: Validating RANS models
     description: This was created for a demo.
     stage: build-paper
+showcase:
+  - figure: figures/mean-velocity-profiles.png
