@@ -17,22 +17,28 @@ stages:
           persist: true
     always_changed: true
   run-sim:
-    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
-      {turbulence_model}
+    cmd:
+      calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      ${item.turbulence_model}
     deps:
       - run.py
       - system
       - constant/transportProperties
       - .calkit/env-locks/foam.json
     outs:
-      - cases/{turbulence_model}/postProcessing
+      - cases/${item.turbulence_model}/postProcessing
+    matrix:
+      turbulence_model:
+        - laminar
+        - k-epsilon
+        - k-omega
   plot-mean-velocity-profiles:
     cmd: calkit xenv -n foam --no-check -- python scripts/plot-mean-velocity-profiles.py
     deps:
       - scripts/plot-mean-velocity-profiles.py
       - data/jhtdb-profiles.h5
       - .calkit/env-locks/foam.json
-      - cases/{turbulence_model}/postProcessing
+      - cases/${item.turbulence_model}/postProcessing # Wrong!
     outs:
       - figures/mean-velocity-profiles.png
   build-paper:
