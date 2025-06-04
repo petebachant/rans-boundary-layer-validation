@@ -175,3 +175,5 @@ constant/polyMesh
 notebook.ipynb
 data/jhtdb-profiles.h5
 553
+
+.DS_Store
