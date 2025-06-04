@@ -1,36 +1,46 @@
 stages:
-  run-sim:
-    foreach:
-      - laminar
-      - k-epsilon
-      - k-omega
-    do:
-      cmd: calkit xenv -n foam -- python run.py --turbulence-model ${item} -f
-      outs:
-        - cases/${item}/postProcessing
-      deps:
-        - system
-        - constant/transportProperties
-        - run.py
-        - Dockerfile
-  plot-mean-velocity-profiles:
-    cmd: calkit xenv -n foam -- python scripts/plot-mean-velocity-profiles.py
+  _check-env-foam:
+    cmd: calkit check docker-env openfoam-2406-foampy -i Dockerfile -o .calkit/env-locks/foam.json
     deps:
-      - cases/k-epsilon/postProcessing
-      - cases/k-omega/postProcessing
-      - cases/laminar/postProcessing
-      - data/jhtdb-profiles.h5
-      - scripts/plot-mean-velocity-profiles.py
       - Dockerfile
+    outs:
+      - .calkit/env-locks/foam.json:
+          cache: false
+          persist: true
+    always_changed: true
+  _check-env-latex:
+    cmd: calkit check docker-env texlive/texlive:latest-fullß -o .calkit/env-locks/latex.json
+    deps: []
+    outs:
+      - .calkit/env-locks/latex.json:
+          cache: false
+          persist: true
+    always_changed: true
+  run-sim:
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      {turbulence_model}
+    deps:
+      - run.py
+      - system
+      - constant/transportProperties
+      - .calkit/env-locks/foam.json
+    outs:
+      - cases/{turbulence_model}/postProcessing
+  plot-mean-velocity-profiles:
+    cmd: calkit xenv -n foam --no-check -- python scripts/plot-mean-velocity-profiles.py
+    deps:
+      - scripts/plot-mean-velocity-profiles.py
+      - data/jhtdb-profiles.h5
+      - .calkit/env-locks/foam.json
+      - cases/{turbulence_model}/postProcessing
     outs:
       - figures/mean-velocity-profiles.png
   build-paper:
-    cmd: >
-      calkit xenv -n latex --
-      latexmk -interaction=nonstopmode -cd -pdf paper/paper.tex
+    cmd: calkit xenv -n latex --no-check -- latexmk -cd -interaction=nonstopmode
+      -pdf paper/paper.tex
     deps:
-      - .calkit/environments/latex.yaml
       - paper/paper.tex
+      - .calkit/env-locks/latex.json
       - figures/mean-velocity-profiles.png
     outs:
       - paper/paper.pdf
