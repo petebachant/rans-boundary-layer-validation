@@ -9,7 +9,7 @@ stages:
           persist: true
     always_changed: true
   _check-env-latex:
-    cmd: calkit check docker-env texlive/texlive:latest-fullß -o .calkit/env-locks/latex.json
+    cmd: calkit check docker-env texlive/texlive:latest-full -o .calkit/env-locks/latex.json
     deps: []
     outs:
       - .calkit/env-locks/latex.json:
@@ -17,8 +17,7 @@ stages:
           persist: true
     always_changed: true
   run-sim:
-    cmd:
-      calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
       ${item.turbulence_model}
     deps:
       - run.py
@@ -38,7 +37,9 @@ stages:
       - scripts/plot-mean-velocity-profiles.py
       - data/jhtdb-profiles.h5
       - .calkit/env-locks/foam.json
-      - cases/${item.turbulence_model}/postProcessing # Wrong!
+      - cases/k-epsilon/postProcessing
+      - cases/k-omega/postProcessing
+      - cases/laminar/postProcessing
     outs:
       - figures/mean-velocity-profiles.png
   build-paper:

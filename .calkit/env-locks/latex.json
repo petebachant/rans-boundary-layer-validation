@@ -1,0 +1,71 @@
+[
+    {
+        "RepoTags": [
+            "texlive/texlive:latest-full"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-05-11T13:45:24.681068416Z",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8",
+                "TEXLIVE_INSTALL_NO_CONTEXT_CACHE=1",
+                "NOPERLDOC=1",
+                "DEBIAN_FRONTEND=noninteractive"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/workdir",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.authors": "Island of TeX",
+                "org.opencontainers.image.source": "https://gitlab.com/islandoftex/images/texlive/-/blob/master/Dockerfile",
+                "org.opencontainers.image.url": "https://gitlab.com/islandoftex/images/texlive"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 2409562089,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "overlayfs"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:f20086072b1d2fffdc8a8a3afc546d1ecb13a9047ac9cc6c941e9783ba2c1c40",
+                "sha256:cc4ebc54dd55374e26421ee3710a3cb932690ec294b3665230f54ae0ddbbacec",
+                "sha256:2ff8561f9f970e166f982b4a6f584a0ce9a275836a281d9e5b62fb27d6a99e8f",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:6b5bb1acd1ecb71e7df10f16fba58ee8afbc1a4295b26486766742471c7380bf",
+                "sha256:84cc1f955c35ccf33e8c50a7e8cab52e5c5e186124d3d2dc294de9d227ca2f9e",
+                "sha256:e408bd808583af5c8c473d3a99d1e503095ebae3752b54408e274eb7596f163f",
+                "sha256:8d7558178b2bf04a68ead86ebe9fe20fe199f9e4703cddf9389f508711365a83",
+                "sha256:0b653ec0cefe2beb09dee6dfd05199f92481c2cdd0d893aa5f6cfca402f301d8"
+            ]
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+            "digest": "sha256:ac2a1fbc4dad1ec27c7407c24907af5a38a5f53c4baf9c6dc5973efd34b355e6",
+            "size": 685
+        },
+        "DockerfileMD5": null,
+        "DepsMD5s": {}
+    }
+]

@@ -15,14 +15,14 @@ environments:
     image: openfoam-2406-foampy
     wdir: /work
     path: Dockerfile
-    stage: build-docker
+    user: root
     description: OpenFOAM v2406 with foamPy.
     layers:
       - mambaforge
       - foampy
   latex:
     kind: docker
-    image: texlive/texlive:latest-fullß
+    image: texlive/texlive:latest-full
     description: TeXlive full.
 pipeline:
   stages:
@@ -50,7 +50,7 @@ pipeline:
       script_path: scripts/plot-mean-velocity-profiles.py
       environment: foam
       inputs:
-        - from_stage_outputs: run-sim # TODO: Ensure this iterates properly
+        - from_stage_outputs: run-sim
         - data/jhtdb-profiles.h5
       outputs:
         - figures/mean-velocity-profiles.png

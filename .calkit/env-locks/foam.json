@@ -5,7 +5,7 @@
         ],
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
-        "Created": "2025-06-04T00:18:09.007530096Z",
+        "Created": "2025-06-05T12:38:59.223087917Z",
         "Author": "",
         "Config": {
             "Hostname": "",
@@ -47,7 +47,7 @@
         },
         "Architecture": "arm64",
         "Os": "linux",
-        "Size": 623042096,
+        "Size": 566616030,
         "GraphDriver": {
             "Data": null,
             "Name": "overlayfs"
@@ -63,15 +63,15 @@
                 "sha256:8fbb70ba4c853dafce432cff7d751501b9caa7aa1ad70361b4ec2905ad332771",
                 "sha256:c70558a8303fcea1103cd51d8a7465624755a7278c0347a5f223685969270cfd",
                 "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
-                "sha256:f7b8e0aa7bb6a0a33772ace7f2aad97c060274d56e8128e5523777d9e12688ec",
-                "sha256:4428e086f7879f59b41ce6bafc24b4f5a4b255d2896831902cddc47e8eaba3cf",
-                "sha256:8a65be1c6ef1fbab09d37d89583f69d17003582428b53f7b333aa86d1300e1a6",
+                "sha256:fd804c1a922085bde31b150b73acaa964eace9b7e47b393f538df9a8358d1d3e",
+                "sha256:b914dbe4daa0f90e835e06caf985152f428e682e8b6fe0be1634fe6242dd51fe",
+                "sha256:8021ec7a5734164b018f8056e84653f5459b46ba99be6472ab2bd03cbdd89921",
                 "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
             ]
         },
         "Descriptor": {
             "mediaType": "application/vnd.oci.image.index.v1+json",
-            "digest": "sha256:fd655f07cc82a1bd587b505d0c01cf6694386a4e20f6295c6aab8e894c828f52",
+            "digest": "sha256:a0501cce584798848477cf48537628e64f215467014006748977ff48ed0894bf",
             "size": 856
         },
         "DockerfileMD5": "8ea8bad904dccccc38ee0f7e3db36f7e",
