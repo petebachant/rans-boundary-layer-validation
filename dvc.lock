@@ -18,7 +18,7 @@ stages:
     deps:
     - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8edfcf6982bcc2c994899e6da5302085
+      md5: 631f39d39c8869d9b72e001ddf1bcb5a
       size: 3109
     - path: constant/transportProperties
       hash: md5
@@ -45,7 +45,7 @@ stages:
     deps:
     - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8edfcf6982bcc2c994899e6da5302085
+      md5: 631f39d39c8869d9b72e001ddf1bcb5a
       size: 3109
     - path: constant/transportProperties
       hash: md5
@@ -72,7 +72,7 @@ stages:
     deps:
     - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8edfcf6982bcc2c994899e6da5302085
+      md5: 631f39d39c8869d9b72e001ddf1bcb5a
       size: 3109
     - path: constant/transportProperties
       hash: md5
@@ -98,7 +98,7 @@ stages:
     deps:
     - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8edfcf6982bcc2c994899e6da5302085
+      md5: 631f39d39c8869d9b72e001ddf1bcb5a
       size: 3109
     - path: cases/k-epsilon/postProcessing
       hash: md5
@@ -159,7 +159,7 @@ stages:
     outs:
     - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8edfcf6982bcc2c994899e6da5302085
+      md5: 631f39d39c8869d9b72e001ddf1bcb5a
       size: 3109
   _check-env-latex:
     cmd: calkit check docker-env texlive/texlive:latest-full -o .calkit/env-locks/latex.json
