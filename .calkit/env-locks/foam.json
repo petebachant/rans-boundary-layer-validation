@@ -1,0 +1,68 @@
+[
+    {
+        "RepoTags": [
+            "openfoam-2406-foampy:latest"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-06-04T00:18:09.007530096Z",
+        "Author": "",
+        "Config": {
+            "Env": [
+                "PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "OMPI_ALLOW_RUN_AS_ROOT=1",
+                "OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1",
+                "CONDA_DIR=/opt/conda",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8"
+            ],
+            "Entrypoint": [
+                "/openfoam/run"
+            ],
+            "Cmd": [
+                "/usr/local/bin/openfoam"
+            ],
+            "WorkingDir": "/work",
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04"
+            },
+            "ArgsEscaped": true,
+            "Shell": [
+                "/openfoam/bash",
+                "-c"
+            ]
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 623042096,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "overlayfs"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e03f520a17abd5b8603b7187bb5aec0eafe8972faf801eab0687f08c516d28e3",
+                "sha256:8fd84d32689b07bef8db99d6db9f152426cedc11ceb8020fd91eed9333a142af",
+                "sha256:a8731671cb89425c556ff2b34c5d278d293ffe8cb44fab3614db31760471a185",
+                "sha256:801c7b5b05311d6435a092fc647495f8e8784e48a6fa24514645295b756224dc",
+                "sha256:a28d31efdc7c4dd24273a4b474b63ae07ce02b34257a2b1e4d1be877242f1568",
+                "sha256:8fbb70ba4c853dafce432cff7d751501b9caa7aa1ad70361b4ec2905ad332771",
+                "sha256:c70558a8303fcea1103cd51d8a7465624755a7278c0347a5f223685969270cfd",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:f7b8e0aa7bb6a0a33772ace7f2aad97c060274d56e8128e5523777d9e12688ec",
+                "sha256:4428e086f7879f59b41ce6bafc24b4f5a4b255d2896831902cddc47e8eaba3cf",
+                "sha256:8a65be1c6ef1fbab09d37d89583f69d17003582428b53f7b333aa86d1300e1a6",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:8d1aa39978419dd5181c7fb728be97b6af2e88c6b9177511a7ab75e8ca243f24",
+            "size": 856
+        },
+        "DockerfileMD5": "8ea8bad904dccccc38ee0f7e3db36f7e",
+        "DepsMD5s": {}
+    }
+]

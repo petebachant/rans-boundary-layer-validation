@@ -13,12 +13,13 @@ stages:
       md5: 27765ad9af3914c52abd21e3adae457c
       size: 2770
   run-sim@laminar:
-    cmd: calkit xenv -n foam -- python run.py --turbulence-model laminar -f
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      laminar
     deps:
-    - path: Dockerfile
+    - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 2801e4473f5812e822a0ce9fef4da58a
+      size: 2750
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -39,12 +40,13 @@ stages:
       size: 13408
       nfiles: 1
   run-sim@k-epsilon:
-    cmd: calkit xenv -n foam -- python run.py --turbulence-model k-epsilon -f
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      k-epsilon
     deps:
-    - path: Dockerfile
+    - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 2801e4473f5812e822a0ce9fef4da58a
+      size: 2750
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -65,12 +67,13 @@ stages:
       size: 13322
       nfiles: 1
   run-sim@k-omega:
-    cmd: calkit xenv -n foam -- python run.py --turbulence-model k-omega -f
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      k-omega
     deps:
-    - path: Dockerfile
+    - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 2801e4473f5812e822a0ce9fef4da58a
+      size: 2750
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -91,12 +94,12 @@ stages:
       size: 13299
       nfiles: 1
   plot-mean-velocity-profiles:
-    cmd: calkit xenv -n foam -- python scripts/plot-mean-velocity-profiles.py
+    cmd: calkit xenv -n foam --no-check -- python scripts/plot-mean-velocity-profiles.py
     deps:
-    - path: Dockerfile
+    - path: .calkit/env-locks/foam.json
       hash: md5
-      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
-      size: 2085
+      md5: 2801e4473f5812e822a0ce9fef4da58a
+      size: 2750
     - path: cases/k-epsilon/postProcessing
       hash: md5
       md5: 8b21b3a0ccacf22a1e1484f0fbd6358b.dir
@@ -123,18 +126,19 @@ stages:
     outs:
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: efcdaa39c0a972798c06a0e15ebc7623
+      md5: 352706847869f674dad1d4f192bb552f
       size: 32606
   build-paper:
-    cmd: "calkit xenv -n latex -- latexmk -interaction=nonstopmode -cd -pdf paper/paper.tex\n"
+    cmd: calkit xenv -n latex --no-check -- latexmk -cd -interaction=nonstopmode -pdf
+      paper/paper.tex
     deps:
-    - path: .calkit/environments/latex.yaml
+    - path: .calkit/env-locks/latex.json
       hash: md5
-      md5: a2daf8fb84b593caf26512bdea23a39e
-      size: 75
+      md5: 90547a19ff99a75cb4950a3b82d86bed
+      size: 2400
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: efcdaa39c0a972798c06a0e15ebc7623
+      md5: 352706847869f674dad1d4f192bb552f
       size: 32606
     - path: paper/paper.tex
       hash: md5
@@ -143,5 +147,24 @@ stages:
     outs:
     - path: paper/paper.pdf
       hash: md5
-      md5: aa72e57ff6cf2c1e26d58fb3d25f1552
-      size: 274903
+      md5: fc1232027816af1297cd43d4588bec41
+      size: 273746
+  _check-env-foam:
+    cmd: calkit check docker-env openfoam-2406-foampy -i Dockerfile -o .calkit/env-locks/foam.json
+    deps:
+    - path: Dockerfile
+      hash: md5
+      md5: 8ea8bad904dccccc38ee0f7e3db36f7e
+      size: 2085
+    outs:
+    - path: .calkit/env-locks/foam.json
+      hash: md5
+      md5: 2801e4473f5812e822a0ce9fef4da58a
+      size: 2750
+  _check-env-latex:
+    cmd: calkit check docker-env texlive/texlive:latest-full -o .calkit/env-locks/latex.json
+    outs:
+    - path: .calkit/env-locks/latex.json
+      hash: md5
+      md5: 90547a19ff99a75cb4950a3b82d86bed
+      size: 2400

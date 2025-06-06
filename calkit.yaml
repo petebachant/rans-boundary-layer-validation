@@ -15,13 +15,53 @@ environments:
     image: openfoam-2406-foampy
     wdir: /work
     path: Dockerfile
-    stage: build-docker
+    user: root
     description: OpenFOAM v2406 with foamPy.
     layers:
       - mambaforge
       - foampy
   latex:
-    _include: .calkit/environments/latex.yaml
+    kind: docker
+    image: texlive/texlive:latest-full
+    description: TeXlive full.
+pipeline:
+  stages:
+    run-sim:
+      kind: python-script
+      script_path: run.py
+      environment: foam
+      args:
+        - --overwrite
+        - --turbulence-model
+        - "{turbulence_model}"
+      inputs:
+        - system
+        - constant/transportProperties
+      iterate_over:
+        - arg_name: turbulence_model
+          values:
+            - laminar
+            - k-epsilon
+            - k-omega
+      outputs:
+        - cases/{turbulence_model}/postProcessing
+    plot-mean-velocity-profiles:
+      kind: python-script
+      script_path: scripts/plot-mean-velocity-profiles.py
+      environment: foam
+      inputs:
+        - from_stage_outputs: run-sim
+        - data/jhtdb-profiles.h5
+      outputs:
+        - figures/mean-velocity-profiles.png
+    build-paper:
+      kind: latex
+      target_path: paper/paper.tex
+      environment: latex
+      inputs:
+        - from_stage_outputs: plot-mean-velocity-profiles
+      outputs:
+        - paper/paper.pdf
 figures:
   - path: figures/mean-velocity-profiles.png
     title: Mean velocity profiles

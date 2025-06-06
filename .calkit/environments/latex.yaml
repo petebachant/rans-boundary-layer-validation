@@ -1,3 +1,0 @@
-kind: docker
-image: texlive/texlive:latest-full
-description: TeXlive full.
