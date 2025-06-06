@@ -8,15 +8,6 @@
         "Created": "2025-05-11T13:45:24.681068416Z",
         "Author": "",
         "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
             "Env": [
                 "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
                 "LANG=C.UTF-8",
@@ -28,11 +19,7 @@
             "Cmd": [
                 "bash"
             ],
-            "Image": "",
-            "Volumes": null,
             "WorkingDir": "/workdir",
-            "Entrypoint": null,
-            "OnBuild": null,
             "Labels": {
                 "org.opencontainers.image.authors": "Island of TeX",
                 "org.opencontainers.image.source": "https://gitlab.com/islandoftex/images/texlive/-/blob/master/Dockerfile",
