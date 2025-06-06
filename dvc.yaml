@@ -37,9 +37,9 @@ stages:
       - scripts/plot-mean-velocity-profiles.py
       - data/jhtdb-profiles.h5
       - .calkit/env-locks/foam.json
-      - cases/k-omega/postProcessing
-      - cases/k-epsilon/postProcessing
       - cases/laminar/postProcessing
+      - cases/k-epsilon/postProcessing
+      - cases/k-omega/postProcessing
     outs:
       - figures/mean-velocity-profiles.png
   build-paper:
