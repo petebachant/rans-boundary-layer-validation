@@ -1,0 +1,23 @@
+{
+  "os": "Darwin",
+  "os_version": "24.5.0",
+  "python_version": "3.12.0",
+  "calkit_version": "0.26.8",
+  "calkit_git_rev": "51ee7c3263d9ccd4a30556e65b374dea398e68ef",
+  "hostname": "Petes-Laptop.local",
+  "processor": "arm",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "machine": "arm64",
+  "python_implementation": "CPython",
+  "python_compiler": "Clang 16.0.3 ",
+  "memory_gb": 64.0,
+  "cpu_count": 10,
+  "node_id": null,
+  "docker_version": "Docker version 28.3.2, build 578ccf6",
+  "conda_version": "conda 25.5.1",
+  "mamba_version": "2.1.1",
+  "uv_version": "uv 0.8.0 (Homebrew 2025-07-17)",
+  "pixi_version": "pixi 0.49.0",
+  "Rscript_version": "Rscript (R) version 4.5.1 (2025-06-13)",
+  "id": "85fc8f5f38409252a2af07d83903abb9feb93591"
+}

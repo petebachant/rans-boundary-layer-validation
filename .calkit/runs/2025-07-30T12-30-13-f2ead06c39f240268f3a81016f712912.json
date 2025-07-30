@@ -1,0 +1,120 @@
+{
+  "id": "f2ead06c39f240268f3a81016f712912",
+  "system_id": "85fc8f5f38409252a2af07d83903abb9feb93591",
+  "start_time": "2025-07-30T12:30:13.428926+00:00",
+  "end_time": "2025-07-30T12:32:37.338134+00:00",
+  "targets": [],
+  "force": false,
+  "dvc_args": [],
+  "status": "completed",
+  "stages": {
+    "_check-env-foam": {
+      "start_time": "2025-07-30T12:30:13.648000",
+      "end_time": "2025-07-30T12:31:41.241000",
+      "status": "completed"
+    },
+    "_check-env-latex": {
+      "start_time": "2025-07-30T12:31:41.241000",
+      "end_time": "2025-07-30T12:31:43.237000",
+      "status": "completed"
+    },
+    "run-sim@laminar": {
+      "start_time": "2025-07-30T12:31:43.237000",
+      "end_time": "2025-07-30T12:31:55.816000",
+      "status": "completed"
+    },
+    "run-sim@k-epsilon": {
+      "start_time": "2025-07-30T12:31:55.816000",
+      "end_time": "2025-07-30T12:32:15.059000",
+      "status": "completed"
+    },
+    "run-sim@k-omega": {
+      "start_time": "2025-07-30T12:32:15.059000",
+      "end_time": "2025-07-30T12:32:31.586000",
+      "status": "completed"
+    },
+    "plot-mean-velocity-profiles": {
+      "start_time": "2025-07-30T12:32:31.586000",
+      "end_time": "2025-07-30T12:32:33.933000",
+      "status": "completed"
+    },
+    "build-paper": {
+      "start_time": "2025-07-30T12:32:33.933000"
+    }
+  },
+  "git_rev": "0f86477a653cc07219be500c44c40058520fbe17",
+  "git_branch": "main",
+  "git_changed_files_before": [
+    "dvc.yaml"
+  ],
+  "git_staged_files_before": [],
+  "git_untracked_files_before": [
+    ".calkit/systems/85fc8f5f38409252a2af07d83903abb9feb93591.json"
+  ],
+  "git_changed_files_after": [
+    ".calkit/env-locks/foam.json",
+    ".calkit/env-locks/latex.json",
+    "dvc.yaml"
+  ],
+  "git_staged_files_after": [
+    "dvc.lock"
+  ],
+  "git_untracked_files_after": [
+    ".calkit/systems/85fc8f5f38409252a2af07d83903abb9feb93591.json",
+    "paper/paper.synctex.gz"
+  ],
+  "dvc_status_before": {
+    "_check-env-foam": [
+      "always changed",
+      "changed command"
+    ],
+    "_check-env-latex": [
+      "always changed",
+      "changed command"
+    ],
+    "build-paper": [
+      "changed command"
+    ]
+  },
+  "dvc_data_status_before": {
+    "not_in_cache": [],
+    "not_in_remote": [],
+    "committed": {},
+    "uncommitted": {},
+    "untracked": [],
+    "unchanged": [
+      "paper/paper.pdf",
+      "figures/mean-velocity-profiles.png",
+      "data/jhtdb-profiles.h5",
+      "cases/laminar/postProcessing/",
+      "cases/k-omega/postProcessing/",
+      "cases/k-epsilon/postProcessing/"
+    ]
+  },
+  "dvc_status_after": {
+    "_check-env-foam": [
+      "always changed"
+    ],
+    "_check-env-latex": [
+      "always changed"
+    ]
+  },
+  "dvc_data_status_after": {
+    "not_in_cache": [],
+    "not_in_remote": [],
+    "committed": {
+      "modified": [
+        "paper/paper.pdf"
+      ]
+    },
+    "uncommitted": {},
+    "untracked": [],
+    "unchanged": [
+      "figures/mean-velocity-profiles.png",
+      "data/jhtdb-profiles.h5",
+      "cases/laminar/postProcessing/",
+      "cases/k-omega/postProcessing/",
+      "cases/k-epsilon/postProcessing/"
+    ]
+  }
+}
