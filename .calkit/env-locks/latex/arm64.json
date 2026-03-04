@@ -7,7 +7,6 @@
     ],
     "Architecture": "arm64",
     "Os": "linux",
-    "Size": 2467471264,
     "RootFS": {
         "Type": "layers",
         "Layers": [

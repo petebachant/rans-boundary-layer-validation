@@ -13,13 +13,14 @@ stages:
       md5: 27765ad9af3914c52abd21e3adae457c
       size: 2770
   run-sim@laminar:
-    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite 
-      --turbulence-model laminar
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      laminar
     deps:
-    - path: .calkit/env-locks/foam.json
+    - path: .calkit/env-locks/foam
       hash: md5
-      md5: 6ce1aaa077af540f8e9c0216acd85881
-      size: 1486
+      md5: e5befb63907c52818507a7fd65449cd5.dir
+      size: 1456
+      nfiles: 1
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -40,13 +41,14 @@ stages:
       size: 13408
       nfiles: 1
   run-sim@k-epsilon:
-    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite 
-      --turbulence-model k-epsilon
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      k-epsilon
     deps:
-    - path: .calkit/env-locks/foam.json
+    - path: .calkit/env-locks/foam
       hash: md5
-      md5: 6ce1aaa077af540f8e9c0216acd85881
-      size: 1486
+      md5: e5befb63907c52818507a7fd65449cd5.dir
+      size: 1456
+      nfiles: 1
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -67,13 +69,14 @@ stages:
       size: 13322
       nfiles: 1
   run-sim@k-omega:
-    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite 
-      --turbulence-model k-omega
+    cmd: calkit xenv -n foam --no-check -- python run.py --overwrite --turbulence-model
+      k-omega
     deps:
-    - path: .calkit/env-locks/foam.json
+    - path: .calkit/env-locks/foam
       hash: md5
-      md5: 6ce1aaa077af540f8e9c0216acd85881
-      size: 1486
+      md5: e5befb63907c52818507a7fd65449cd5.dir
+      size: 1456
+      nfiles: 1
     - path: constant/transportProperties
       hash: md5
       md5: 308d95776c9f06ee1b8c6c02ca69e936
@@ -94,13 +97,13 @@ stages:
       size: 13299
       nfiles: 1
   plot-mean-velocity-profiles:
-    cmd: calkit xenv -n foam --no-check -- python 
-      scripts/plot-mean-velocity-profiles.py
+    cmd: calkit xenv -n foam --no-check -- python scripts/plot-mean-velocity-profiles.py
     deps:
-    - path: .calkit/env-locks/foam.json
+    - path: .calkit/env-locks/foam
       hash: md5
-      md5: 6ce1aaa077af540f8e9c0216acd85881
-      size: 1486
+      md5: e5befb63907c52818507a7fd65449cd5.dir
+      size: 1456
+      nfiles: 1
     - path: cases/k-epsilon/postProcessing
       hash: md5
       md5: 8b21b3a0ccacf22a1e1484f0fbd6358b.dir
@@ -127,19 +130,19 @@ stages:
     outs:
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: 352706847869f674dad1d4f192bb552f
+      md5: c3183955eacbd3777a4d2507a04cb027
       size: 32606
   build-paper:
-    cmd: calkit xenv -n latex --no-check -- latexmk -cd -interaction=nonstopmode
-      -silent -synctex=1 -pdf paper/paper.tex
+    cmd: calkit latex build -e latex --no-check paper/paper.tex
     deps:
-    - path: .calkit/env-locks/latex.json
+    - path: .calkit/env-locks/latex
       hash: md5
-      md5: 5540fc5586e6f83b35422b7d1ddddae3
-      size: 1171
+      md5: b8cbc5739723ebea0f70eaa801cda97b.dir
+      size: 1147
+      nfiles: 1
     - path: figures/mean-velocity-profiles.png
       hash: md5
-      md5: 352706847869f674dad1d4f192bb552f
+      md5: c3183955eacbd3777a4d2507a04cb027
       size: 32606
     - path: paper/paper.tex
       hash: md5
@@ -148,7 +151,7 @@ stages:
     outs:
     - path: paper/paper.pdf
       hash: md5
-      md5: cfc8f8326999dacbf9e1905c4a1ae9a4
+      md5: 68b82f4ca6e9e5554cef37871c1bb260
       size: 273746
   _check-env-foam:
     cmd: calkit check environment --name foam
