@@ -13,3 +13,5 @@
 ['remote "calkit-local"']
     url = http://api.localhost/projects/petebachant/rans-boundary-layer-validation/dvc
     auth = custom
+['remote "ck"']
+    url = ck://petebachant/rans-boundary-layer-validation
