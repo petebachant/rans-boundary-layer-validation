@@ -70,7 +70,7 @@ figures:
     stage: plot-mean-velocity-profiles
 
 publications:
-  - path: ./paper/paper.pdf
+  - path: ./paper/main.pdf
     kind: journal-article
     title: Validating RANS models
     description: This was created for a demo.
