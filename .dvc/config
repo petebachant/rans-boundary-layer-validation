@@ -2,8 +2,7 @@
     autostage = true
     remote = calkit
 ['remote "calkit"']
-    url = https://api.calkit.io/projects/petebachant/rans-boundary-layer-validation/dvc
-    auth = custom
+    url = ck://petebachant/rans-boundary-layer-validation
 ['remote "calkit:petebachant/boundary-layer-turbulence-modeling"']
     url = https://api.calkit.io/projects/petebachant/boundary-layer-turbulence-modeling/dvc
     auth = custom
