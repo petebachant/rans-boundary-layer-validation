@@ -1,5 +1,6 @@
 questions:
   - What RANS model works best for a simple boundary layer?
+
 datasets:
   - path: data/jhtdb-profiles.h5
     title: Time-averaged data
@@ -9,21 +10,20 @@ datasets:
       project: petebachant/boundary-layer-turbulence-modeling
       path: data/jhtdb-transitional-bl/time-ave-profiles.h5
       git_rev:
+
 environments:
   foam:
     kind: docker
-    image: openfoam-2406-foampy
+    image: openfoam-2412-foampy
     wdir: /work
     path: Dockerfile
     user: root
-    description: OpenFOAM v2406 with foamPy.
-    layers:
-      - mambaforge
-      - foampy
+    description: OpenFOAM v2412 with foamPy.
   latex:
     kind: docker
     image: texlive/texlive:latest-full
     description: TeXlive full.
+
 pipeline:
   stages:
     run-sim:
@@ -56,22 +56,25 @@ pipeline:
         - figures/mean-velocity-profiles.png
     build-paper:
       kind: latex
-      target_path: paper/paper.tex
+      target_path: paper/main.tex
       environment: latex
       inputs:
         - from_stage_outputs: plot-mean-velocity-profiles
       outputs:
-        - paper/paper.pdf
+        - paper/main.pdf
+
 figures:
   - path: figures/mean-velocity-profiles.png
     title: Mean velocity profiles
     description: Mean velocity profiles from DNS and RANS models.
     stage: plot-mean-velocity-profiles
+
 publications:
   - path: ./paper/paper.pdf
     kind: journal-article
     title: Validating RANS models
     description: This was created for a demo.
     stage: build-paper
+
 showcase:
   - figure: figures/mean-velocity-profiles.png
